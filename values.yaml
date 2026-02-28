@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: 196549506578.dkr.ecr.ap-south-1.amazonaws.com/python-app
   pullPolicy: IfNotPresent
-  tag: "19-38993c9"
+  tag: "20-109b536"
 
 imagePullSecrets: []
 nameOverride: ""
