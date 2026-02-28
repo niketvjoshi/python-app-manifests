@@ -138,3 +138,5 @@ rollout:
     - setWeight: 50
     - pause: {duration: 10m}
     - setWeight: 100
+httpRoute:
+  enabled: false
