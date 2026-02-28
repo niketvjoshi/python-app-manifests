@@ -131,3 +131,10 @@ volumeMounts: []
 nodeSelector: {}
 tolerations: []
 affinity: {}
+rollout:
+  steps:
+    - setWeight: 10
+    - pause: {duration: 10m}
+    - setWeight: 50
+    - pause: {duration: 10m}
+    - setWeight: 100

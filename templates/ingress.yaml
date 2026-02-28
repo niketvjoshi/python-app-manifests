@@ -23,7 +23,8 @@ spec:
             pathType: {{ .pathType }}
             backend:
               service:
-                name: {{ include "python-app.fullname" $ }}
+                # Points to stable service — Argo Rollouts manages the weight split
+                name: {{ include "python-app.fullname" $ }}-stable
                 port:
                   number: {{ $.Values.service.port }}
           {{- end }}
