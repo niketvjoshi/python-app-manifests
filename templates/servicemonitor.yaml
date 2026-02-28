@@ -1,3 +1,4 @@
+# helm/python-app/templates/servicemonitor.yaml
 {{- if .Values.serviceMonitor.enabled }}
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -19,26 +20,3 @@ spec:
     matchLabels:
       {{- include "python-app.selectorLabels" . | nindent 6 }}
 {{- end }}
-```
-
----
-
-### `helm/python-app/templates/NOTES.txt`
-```
-Python Flask app {{ .Chart.AppVersion }} deployed successfully!
-
-Release:   {{ .Release.Name }}
-Namespace: {{ .Release.Namespace }}
-
-{{- if .Values.ingress.enabled }}
-Access via ALB:
-  kubectl get ingress {{ include "python-app.fullname" . }} -n {{ .Release.Namespace }}
-{{- else }}
-Access via port-forward:
-  kubectl port-forward svc/{{ include "python-app.fullname" . }} 5000:80 -n {{ .Release.Namespace }}
-  curl http://localhost:5000
-{{- end }}
-
-Useful commands:
-  kubectl get pods -n {{ .Release.Namespace }}
-  kubectl logs -l app.kubernetes.io/name={{ include "python-app.name" . }} -n {{ .Release.Namespace }}
